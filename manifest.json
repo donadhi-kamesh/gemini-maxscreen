@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Gemini Customizer",
+    "version": "1.0",
+    "description": "Customize the Gemini web interface — hide header, remove warnings, toggle chat input, and more.",
+    "icons": {
+        "128": "icon128.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "128": "icon128.png"
+        }
+    },
+    "permissions": [
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://gemini.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "style.css"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}

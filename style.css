@@ -1,0 +1,198 @@
+/* Gemini Web Customizer - Settings-driven styles */
+/* Each feature is controlled by a body-level class toggle */
+
+/* ===== 1. HIDE HEADER TITLE (gc-hide-header-on) ===== */
+.gc-hide-header-on top-bar-actions .center-section,
+.gc-hide-header-on .conversation-title-container {
+   display: none !important;
+   width: 0 !important;
+   overflow: hidden !important;
+}
+
+.gc-hide-header-on top-bar-actions {
+   min-height: 40px !important;
+   height: 40px !important;
+   padding: 0 8px !important;
+}
+
+.gc-hide-header-on .top-bar-actions {
+   min-height: 40px !important;
+   height: 40px !important;
+}
+
+.gc-hide-header-on top-bar-actions .right-section {
+   display: flex !important;
+   align-items: center !important;
+}
+
+.gc-hide-header-on .desktop-ogb-buffer {
+   display: none !important;
+   height: 0 !important;
+}
+
+/* ===== 2. REMOVE FADE EFFECT (gc-remove-fade-on) ===== */
+.gc-remove-fade-on input-container.input-gradient {
+   background: none !important;
+   background-image: none !important;
+}
+
+.gc-remove-fade-on input-container.input-gradient::before,
+.gc-remove-fade-on input-container.input-gradient::after {
+   display: none !important;
+   content: none !important;
+}
+
+/* ===== 3. HIDE WARNINGS (handled by JS) ===== */
+/* JS hides condensed-tos-disclaimer and hallucination-disclaimer */
+
+/* ===== 4. TOGGLE CHAT INPUT ===== */
+/* Hidden state - reclaims space */
+input-container.gc-input-hidden {
+   height: 0 !important;
+   min-height: 0 !important;
+   max-height: 0 !important;
+   padding: 0 !important;
+   margin: 0 !important;
+   overflow: hidden !important;
+   opacity: 0 !important;
+   pointer-events: none !important;
+}
+
+/* Visible state */
+input-container.gc-input-visible {
+   height: auto !important;
+   max-height: none !important;
+   opacity: 1 !important;
+   pointer-events: auto !important;
+   overflow: visible !important;
+}
+
+/* Transition */
+input-container {
+   transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.25s ease,
+      padding 0.3s ease !important;
+}
+
+/* ===== 5. COMPACT INPUT (gc-compact-input-on) ===== */
+.gc-compact-input-on fieldset.input-area-container {
+   border-radius: 24px !important;
+   padding: 4px 14px 4px 14px !important;
+   min-height: unset !important;
+}
+
+.gc-compact-input-on .text-input-field_textarea-wrapper {
+   padding-top: 4px !important;
+   padding-bottom: 0px !important;
+   margin-bottom: 0px !important;
+}
+
+.gc-compact-input-on .text-input-field_textarea-inner {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.gc-compact-input-on .ql-editor.textarea {
+   padding: 6px 4px !important;
+   margin: 0 !important;
+   min-height: 22px !important;
+   max-height: 144px !important;
+}
+
+.gc-compact-input-on .leading-actions-wrapper {
+   padding-top: 0px !important;
+   padding-bottom: 2px !important;
+   margin-top: 0px !important;
+   gap: 4px !important;
+}
+
+.gc-compact-input-on .trailing-actions-wrapper {
+   padding-top: 0px !important;
+   padding-bottom: 2px !important;
+   margin-top: 0px !important;
+   gap: 8px !important;
+}
+
+.gc-compact-input-on auto-suggest {
+   height: 0 !important;
+   overflow: hidden !important;
+}
+
+/* Disclaimers always hidden when warning setting is on */
+.gc-hide-header-on condensed-tos-disclaimer,
+.gc-hide-header-on hallucination-disclaimer {
+   display: none !important;
+   height: 0 !important;
+   margin: 0 !important;
+   padding: 0 !important;
+}
+
+/* ===== 6. FLOATING ASK BUTTON ===== */
+#gc-ask-btn {
+   position: fixed !important;
+   bottom: 20px !important;
+   right: 20px !important;
+   z-index: 9999 !important;
+
+   display: flex !important;
+   align-items: center !important;
+   gap: 8px !important;
+
+   padding: 12px 22px !important;
+   border: none !important;
+   border-radius: 24px !important;
+   cursor: pointer !important;
+
+   font-family: 'Google Sans', 'Segoe UI', Roboto, sans-serif !important;
+   font-size: 14px !important;
+   font-weight: 500 !important;
+   letter-spacing: 0.2px !important;
+
+   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Light mode */
+#gc-ask-btn[data-theme="light"] {
+   background: #fff !important;
+   color: #1a73e8 !important;
+   border: 1px solid #dadce0 !important;
+   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15),
+      0 4px 8px rgba(60, 64, 67, 0.1) !important;
+}
+
+#gc-ask-btn[data-theme="light"]:hover {
+   background: #f8f9fa !important;
+   box-shadow: 0 2px 6px rgba(60, 64, 67, 0.2),
+      0 6px 12px rgba(60, 64, 67, 0.15) !important;
+   transform: translateY(-1px) !important;
+}
+
+/* Dark mode */
+#gc-ask-btn[data-theme="dark"] {
+   background: #303134 !important;
+   color: #8ab4f8 !important;
+   border: 1px solid #5f6368 !important;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3),
+      0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+#gc-ask-btn[data-theme="dark"]:hover {
+   background: #3c4043 !important;
+   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4),
+      0 6px 16px rgba(0, 0, 0, 0.3) !important;
+   transform: translateY(-1px) !important;
+}
+
+#gc-ask-btn.gc-ask-btn-active {
+   opacity: 0.7 !important;
+}
+
+#gc-ask-btn:active {
+   transform: scale(0.96) !important;
+}
+
+#gc-ask-btn svg {
+   width: 16px !important;
+   height: 16px !important;
+   flex-shrink: 0 !important;
+}
